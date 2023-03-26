@@ -6,9 +6,13 @@
     background-color: rgb(240, 231, 231);
   }
 
-.todo_list {
+ul {
     border-radius: 25px; /*use to round border angle*/
     border: 5px solid blue;
+    background-color: rgb(202, 229, 239);
+}
+
+li {
     background-color: rgb(202, 229, 239);
 }
 
