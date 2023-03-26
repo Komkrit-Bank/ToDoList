@@ -3,29 +3,31 @@ const name_input = document.getElementById('name');
 const date_input = document.getElementById('date');
 const time_input = document.getElementById('time');
 const form = document.getElementById('form');
-// const line = document.getElementById('todo')
+const line = document.getElementById('todo');
 
+let Transections = [];
 
-const dataTransections = [
-    {id: 1, name: 'ซักผ้า', date: '26-3-2023', time: '14:00'},
-    {id: 2, name: 'ล้างจาน', date: '27-3-2023', time: '15:00'}
-]
-
-const Transections = dataTransections;
-
-function init() {
+function init() {;
     Transections.forEach(addDatatoList);
 }
 
-function addDatatoList(data) {
-    const line = document.createElement('ul')
+function randomID() {
+    return Math.floor(Math.random()*1000000)
+}
 
+function removeItem(id) {
+    line.innerHTML = ''
+    Transections = Transections.filter(Transections=> Transections.id !== id);
+    init();
+}
+
+function addDatatoList(data) {
     const item = document.createElement('li');
     const name_todo = document.createElement('h4');
     const date_todo = document.createElement('p');
     const time_todo = document.createElement('p');
 
-    name_todo.innerHTML = `Name: ${data.name} <span class="todo"><button class="delete-btn">x</button></span>`;
+    name_todo.innerHTML = `Name: ${data.name} <span class="todo"><button class="delete-btn" onclick="removeItem(${data.id})">x</button></span>`;
     name_todo.classList.add('todo');
 
     date_todo.innerHTML = `Date: ${data.date}`;
@@ -38,13 +40,29 @@ function addDatatoList(data) {
     item.appendChild(date_todo);
     item.appendChild(time_todo);
 
-    line.appendChild(item)
-    document.body.appendChild(line)
+    line.appendChild(item);
 }
 
 function addTransection(e){
     e.preventDefault()
-    console.log('sending data....')
+    if(name_input.value.trim() === '' || date_input.value.trim() === '' || time_input.value.trim() === ''){
+        alert('กรุณากรอกข้อมูลให้ครบถ้วน')
+    } else {
+        const data = {
+            id: randomID(),
+            name: name_input.value,
+            date: date_input.value,
+            time: time_input.value
+        };
+
+        Transections.push(data);
+        addDatatoList(data);
+        name_input.value = '';
+        date_input.value = '';
+        time_input.value = '';
+        console.log(Transections);
+    }
 }
 
-init()
+form.addEventListener('submit', addTransection);
+init();
