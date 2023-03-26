@@ -8,15 +8,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 style="font-size: 35px; text-align: center;">ToDoList</h1>
-    <div class="container">
-        <div class="todo_list">
-            <h4>Name: ซักเสื้อผ้า</h4>
-            <p>Date: 26-3-2566</p>
-            <p>Time: 14:11</p>
-            <p>Detail: -</p>
+    <h1 style="font-size: 35px;" class="header">ToDoList</h1>
+    <h3 class="header">เพิ่มรายการ</h3>
+    <form id="form">
+        <div class="form-control">
+            <label for="text">Name:</label>
+            <input type="text" id="name" class="name" placeholder="ระบุชื่อรายการ">
+            <label for="date">Date:</label>
+            <input type="date" id="date" class="date">
+            <label for="time">Time:</label>
+            <input type="time" id="time" class="time">
+            <button class="btn">เพิ่มรายการ</button>
         </div>
-    </div>
+    </form>
+    <ul class="todo_list"> <!--use with to cover li make bulletin line list-->
+        <li class="todo"> <!--li make bulletin line list-->
+            <h4 class="todo">Name: ซักเสื้อผ้า
+                <span class="todo"> <!--use span for combining tag in the same line-->
+                    <button class="delete-btn">x</button>
+                </span>
+            </h4>
+            <p class="todo">Date: 26-3-2566</p>
+            <p class="todo">Time: 14:11</p>
+        </li>
+    </ul>
     <script src="script.js"></script>
 </body>
 </html>

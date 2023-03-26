@@ -3,4 +3,40 @@
 * {
     box-sizing: border-box;
     font-family: 'Alkatra', cursive;
+    background-color: rgb(240, 231, 231);
   }
+
+.todo_list {
+    border-radius: 25px; /*use to round border angle*/
+    border: 5px solid blue;
+    background-color: rgb(202, 229, 239);
+}
+
+.todo {
+    background-color: rgb(202, 229, 239);
+}
+
+.delete-btn {
+    margin-left: 10px;
+}
+
+.header {
+    text-align: center;
+}
+
+.form-control {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    margin-left: 10px;
+}
+
+label {
+    margin-left: 10px;
+}
+
+.btn {
+    margin-left: 15px
+}
