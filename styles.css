@@ -17,7 +17,20 @@
 }
 
 .delete-btn {
+    cursor: pointer;
     margin-left: 10px;
+    background-color: red;
+    color: white;
+    opacity: 0;
+    transition:opacity 0.3s ease;
+}
+
+.delete-btn:focus {
+    outline: 0;
+}
+
+li:hover .delete-btn{
+    opacity: 1;
 }
 
 .header {
