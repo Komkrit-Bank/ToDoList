@@ -14,9 +14,10 @@ ul {
     border-radius: 25px; /*use to round border angle*/
     border: 5px solid blue;
     background-color: rgb(202, 229, 239);
-    flex: 4;
-    flex-basis: 25%;
+    box-shadow: 5px 10px 8px lightblue;
+    flex-basis: 23%;
     margin-right: 20px;
+    
 }
 
 .delete-btn {
@@ -68,4 +69,5 @@ label {
 
 div#todo-container {
     display: flex;
+    flex-wrap: wrap;
 }
