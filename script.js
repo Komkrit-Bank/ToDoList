@@ -3,7 +3,7 @@ const name_input = document.getElementById('name');
 const date_input = document.getElementById('date');
 const time_input = document.getElementById('time');
 const form = document.getElementById('form');
-const line = document.getElementById('todo');
+const container = document.getElementById('todo-container')
 
 let Transections = [];
 
@@ -16,12 +16,20 @@ function randomID() {
 }
 
 function removeItem(id) {
-    line.innerHTML = ''
-    Transections = Transections.filter(Transections=> Transections.id !== id);
-    init();
+    // console.log(Transections);
+    // const removeEle = document.getElementById(id);
+    // removeEle.parentNode.removeChild(removeEle);
+    // Transections  = Transections.filter(Transections=> Transections.id !== id);
+    const removeEle = document.getElementById(id)
+    return removeEle.parentNode.removeChild(removeEle)
+    // console.log(container)
+    // init();
 }
 
 function addDatatoList(data) {
+    const line = document.createElement('ul');
+    line.id = data.id
+
     const item = document.createElement('li');
     const name_todo = document.createElement('h4');
     const date_todo = document.createElement('p');
@@ -41,6 +49,7 @@ function addDatatoList(data) {
     item.appendChild(time_todo);
 
     line.appendChild(item);
+    container.appendChild(line)
 }
 
 function addTransection(e){
@@ -60,7 +69,6 @@ function addTransection(e){
         name_input.value = '';
         date_input.value = '';
         time_input.value = '';
-        console.log(Transections);
     }
 }
 
